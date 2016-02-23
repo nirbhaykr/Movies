@@ -1,0 +1,62 @@
+[
+
+  {
+    "model": "Data.Category",
+    "pk": 1,
+    "fields": {
+      "type": "Language",
+      "value": "English"
+    }
+  },
+  
+  {
+    "model": "Data.Category",
+    "pk": 2,
+    "fields": {
+      "type": "Language",
+      "value": "Hindi"
+    }
+  },
+  
+  {
+    "model": "Data.Category",
+    "pk": 3,
+    "fields": {
+      "type": "Genre",
+      "value": "Action"
+    }
+  },
+  
+  {
+    "model": "Data.Category",
+    "pk": 4,
+    "fields": {
+      "type": "Genre",
+      "value": "Comedy"
+    }
+  },
+  
+  
+  {
+    "model": "Data.Movies",
+    "pk": 1,
+    "fields": {
+			    "title": "Jurassic World",
+			    "description": "A movie about dinosaurs",
+			    "duration": "90",
+			    "release_date": "2015-06-11",
+			     "category": ["1","3"]
+    }
+  },
+  {
+    "model": "Data.Movies",
+    "pk": 2,
+    "fields": {
+			    "title": "Kick",
+			    "description": "Salman Khan movie",
+			    "duration": "120",
+			    "release_date": "2014-04-11",
+			     "category": ["1","3"]
+    }
+  }
+]
