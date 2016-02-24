@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Modern Business - Start Bootstrap Template</title>
+    <title>Movies</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
@@ -30,18 +30,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-<style type="text/css">
-.row{
-    overflow: hidden; 
-}
-
-[class*="col-"]{
-    margin-bottom: -99999px;
-    padding-bottom: 99999px;
-}
-	
-	
-</style> 
 
 </head>
 
@@ -58,12 +46,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active">
-                        <a href="about.html">{% trans 'About' %}</a>
+                        <a href="about.html">{% trans 'Movies' %}</a>
                     </li>
                     
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Language' %} <b class="caret"></b></a>
-                    </li>
                         </ul>
                     </li>
                 </ul>
@@ -85,8 +70,7 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">{% trans 'About' %}
-                    <small>{% trans 'Company' %}</small>
+                <h1 class="page-header">{% trans 'Movies' %}
                 </h1>
             </div>
         </div>
@@ -109,7 +93,20 @@
        			<option value="{{ obj.id }}" {% if selected_genre == obj.id|slugify %} selected="selected" {% endif %}> {{ obj.value }} </option>
        		{% endfor %}
        </select>
+       
+       
+       <label>Select Genre</label>
+       <select name="sort_by">
+       	selected_order
+       	<option value=""> ----------------- </option>
+       	<option value="duration" {% if selected_order == "duration" %} selected="selected" {% endif %} > Duration </option>
+       	<option value="release_date" {% if selected_order == "release_date" %} selected="selected" {% endif %}> Release Date </option>
+       		
+       </select>
+       
+       
        <button type="submit" class="btn btn-primary"> Filter</button>
+       <a href="{% url "movies_list" %}" class="btn btn-danger">Clear Filters</a>
        </form>
         </div>
         
@@ -154,7 +151,6 @@
             </div>
         
 
-	        <hr>
 	        
 	        
 	        {% if forloop.counter|divisibleby:3 %}
@@ -172,7 +168,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2015</p>
+                    <p>Copyright &copy; Your Website 2016</p>
                 </div>
             </div>
         </footer>

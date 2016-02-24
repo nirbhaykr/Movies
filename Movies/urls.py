@@ -23,7 +23,7 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^movies/', MoviesListhView.as_view(),name="movie_list"),
+    url(r'^movies/', MoviesListhView.as_view(),name="movies_list"),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # todo for test. after configure with nginx
 
 # 

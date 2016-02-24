@@ -26,6 +26,7 @@ class MoviesListhView(ListView):
         context['genre'] = Category.objects.filter(type__iexact="Genre")
         context['selected_category'] = request.GET.get('category',None)
         context['selected_genre'] = request.GET.get('genre',None)
+        context['selected_order'] = request.GET.get('sort_by',None)
         
         query_items = request.GET.copy()
         if query_items.has_key('page'):
@@ -54,5 +55,7 @@ class MoviesListhView(ListView):
         
         if cat_list:
             queryset = queryset.filter(category__in = cat_list)
-         
+            
+        if request.GET.get('sort_by',None):
+            queryset = queryset.order_by(request.GET.get('sort_by',None))
         return queryset
